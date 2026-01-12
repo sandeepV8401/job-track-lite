@@ -1,0 +1,391 @@
+openapi: 3.0.3
+info:
+  title: Jobs Module API
+  version: 1.0.0
+  description: |
+    Jobs module for managing job records.
+    Provides endpoints to list, add, update, and delete jobs.
+
+servers:
+  - url: http://localhost:5000/api
+    description: Local development server
+
+tags:
+  - name: Jobs
+    description: Job management endpoints
+
+paths:
+  /jobs:
+    get:
+      tags:
+        - Jobs
+      summary: Get all jobs
+      description: Returns a list of all jobs for authenticated user
+      operationId: getJobs
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: List of jobs
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Job"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /jobs/add:
+    post:
+      tags:
+        - Jobs
+      summary: Add a new job
+      description: Add a new job for the authenticated user
+      operationId: addJob
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AddJobRequest"
+      responses:
+        "201":
+          description: Job created successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AddJobSuccessResponse"
+        "400":
+          description: Validation error or invalid salary
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "409":
+          description: Job already exists
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /jobs/{id}:
+    get:
+      tags:
+        - Jobs
+      summary: Get job by ID
+      description: Fetch a specific job by ID
+      operationId: getJobById
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Job details
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Job"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "404":
+          description: Job not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+    patch:
+      tags:
+        - Jobs
+      summary: Update job by ID
+      description: Update job details
+      operationId: updateJob
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpdateJobRequest"
+      responses:
+        "200":
+          description: Job updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AddJobSuccessResponse"
+        "400":
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "404":
+          description: Job not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+    delete:
+      tags:
+        - Jobs
+      summary: Delete job by ID
+      description: Remove a job record
+      operationId: deleteJob
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Job deleted successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GenericSuccessResponse"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "404":
+          description: Job not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+  schemas:
+    AddJobRequest:
+      type: object
+      required:
+        - title
+        - companyName
+        - salary
+      properties:
+        title:
+          type: string
+          minLength: 3
+          maxLength: 100
+          example: "Full Stack Developer"
+        companyName:
+          type: string
+          minLength: 2
+          maxLength: 100
+          example: "Tech Corp Pvt Ltd"
+        location:
+          type: string
+          maxLength: 100
+          description: "Optional. Empty string allowed."
+          example: "Gurgaon, Haryana"
+        jobType:
+          type: string
+          enum: ["Full-time", "Part-time", "Contract", "Internship", "Freelance"]
+          example: "Full-time"
+        salary:
+          type: number
+          format: float
+          minimum: 0.01
+          maximum: 50
+          example: 5
+        description:
+          type: string
+          maxLength: 100
+          example: "MERN stack role with 2+ years of experience"
+        skills:
+          type: array
+          items:
+            type: string
+            minLength: 1
+          example: ["React", "Node.js", "MongoDB"]
+        isRemote:
+          type: boolean
+          example: true
+        employmentMode:
+          type: string
+          enum: ["Onsite", "Hybrid", "Remote"]
+          example: "Hybrid"
+        status:
+          type: string
+          enum: ["applied", "interview", "offered", "rejected"]
+          example: "applied"
+
+    UpdateJobRequest:
+      type: object
+      properties:
+        title:
+          type: string
+          minLength: 3
+          maxLength: 100
+        companyName:
+          type: string
+          minLength: 2
+          maxLength: 100
+        location:
+          type: string
+          maxLength: 100
+        jobType:
+          type: string
+          enum: ["Full-time", "Part-time", "Contract", "Internship", "Freelance"]
+        salary:
+          type: number
+          format: float
+        description:
+          type: string
+          maxLength: 100
+        skills:
+          type: array
+          items:
+            type: string
+        isRemote:
+          type: boolean
+        employmentMode:
+          type: string
+          enum: ["Onsite", "Hybrid", "Remote"]
+        status:
+          type: string
+          enum: ["applied", "interview", "offered", "rejected"]
+
+    Job:
+      type: object
+      properties:
+        id:
+          type: string
+          example: "64a7f8e54b2c4d1a12345678"
+        title:
+          type: string
+          example: "Full Stack Developer"
+        companyName:
+          type: string
+          example: "Tech Corp Pvt Ltd"
+        location:
+          type: string
+          example: "Gurgaon, Haryana"
+        jobType:
+          type: string
+          example: "Full-time"
+        salary:
+          type: string
+          example: "5 LPA"
+        salaryValue:
+          type: number
+          example: 5
+        description:
+          type: string
+          example: "MERN stack role"
+        skills:
+          type: array
+          items:
+            type: string
+          example: ["React", "Node.js"]
+        isRemote:
+          type: boolean
+          example: true
+        employmentMode:
+          type: string
+          example: "Hybrid"
+        status:
+          type: string
+          example: "applied"
+        createdAt:
+          type: string
+          format: date-time
+          example: "2026-01-07T01:00:00Z"
+        updatedAt:
+          type: string
+          format: date-time
+          example: "2026-01-07T01:05:00Z"
+
+    AddJobSuccessResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+          example: true
+        message:
+          type: string
+          example: "Job created successfully"
+        job:
+          $ref: "#/components/schemas/Job"
+
+    GenericSuccessResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+          example: true
+        message:
+          type: string
+          example: "Action completed successfully"
+
+    ErrorResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+          example: false
+        message:
+          type: string
+          example: "Validation error or unauthorized"
+        errors:
+          type: array
+          nullable: true
+          items:
+            type: object
+            properties:
+              field:
+                type: string
+              message:
+                type: string
+        stack:
+          type: string
+          nullable: true
+          description: Only in development

@@ -1,0 +1,231 @@
+{
+  "auth": [
+    {
+      "email": "amit@test.com",
+      "password": "password123",
+      "userId": "u1",
+      "name": "Amit Sharma",
+      "token": "fake-jwt-token-u1",
+      "id": "ec9c"
+    },
+    {
+      "id": "d3d7",
+      "email": "amit@test.com",
+      "password": "password123"
+    },
+    {
+      "id": "05e6",
+      "email": "amit@test.com",
+      "password": "password123"
+    },
+    {
+      "id": "8dfd",
+      "email": "amit@test.com",
+      "password": "password123"
+    },
+    {
+      "id": "b9c5",
+      "email": "sandeep@example.com",
+      "password": "asdfgh"
+    }
+  ],
+  "users": [
+    {
+      "id": "u1",
+      "name": "Amit Sharma",
+      "email": "amit@test.com",
+      "role": "user"
+    },
+    {
+      "id": "u2",
+      "name": "Rohit Verma",
+      "email": "rohit@test.com",
+      "role": "user"
+    },
+    {
+      "id": "admin1",
+      "name": "Admin User",
+      "email": "admin@test.com",
+      "role": "admin"
+    },
+    {
+      "id": "e348",
+      "name": "Rahul Kumar",
+      "email": "rahul@test.com",
+      "password": "password123"
+    },
+    {
+      "id": "84f9",
+      "name": "Ra Kumar",
+      "email": "ra@test.com",
+      "password": "password123"
+    },
+    {
+      "id": "bbd5",
+      "name": "sandeep",
+      "email": "sandeep@test.com",
+      "password": "password123"
+    },
+    {
+      "id": "720a"
+    },
+    {
+      "id": "cac1"
+    },
+    {
+      "id": "dcf2"
+    },
+    {
+      "id": "57fb"
+    },
+    {
+      "id": "8355"
+    },
+    {
+      "id": "9663",
+      "name": "sandeep",
+      "email": "sandeep@test.com",
+      "password": "123456",
+      "confirmPassword": "123456"
+    },
+    {
+      "id": "e2cd",
+      "name": "pooja",
+      "email": "pooja@test.com",
+      "password": "123456",
+      "confirmPassword": "123456"
+    },
+    {
+      "id": "7959",
+      "name": "kartik",
+      "email": "kartik@test.com",
+      "password": "123456",
+      "confirmPassword": "123456"
+    },
+    {
+      "id": "c9f0",
+      "name": "sandeep1",
+      "email": "sandeep1@test.com",
+      "password": "123456",
+      "confirmPassword": "123456"
+    },
+    {
+      "id": "5402",
+      "name": "sandeep2",
+      "email": "sandeep2@test.com",
+      "password": "123456",
+      "confirmPassword": "123456"
+    },
+    {
+      "id": "4ba6",
+      "name": "asdf",
+      "email": "a@a.com",
+      "password": "123456",
+      "confirmPassword": "123456"
+    },
+    {
+      "id": "b855",
+      "name": "asd",
+      "email": "a@a.com",
+      "password": "123456",
+      "confirmPassword": "123456"
+    },
+    {
+      "id": "960c",
+      "name": "kartik",
+      "email": "kartik@test.com",
+      "password": "123456",
+      "confirmPassword": "123456"
+    }
+  ],
+  "jobs": [
+    {
+      "id": "j1",
+      "userId": "u1",
+      "title": "Frontend Developer",
+      "company": "Infosys",
+      "location": "Delhi",
+      "salary": 60000,
+      "status": "applied",
+      "type": "full-time",
+      "appliedOn": "2025-10-10"
+    },
+    {
+      "id": "j2",
+      "userId": "u1",
+      "title": "React Developer",
+      "company": "TCS",
+      "location": "Bangalore",
+      "salary": 75000,
+      "status": "interview",
+      "type": "full-time",
+      "appliedOn": "2025-10-12"
+    },
+    {
+      "id": "j3",
+      "userId": "u1",
+      "title": "UI Engineer",
+      "company": "Wipro",
+      "location": "Mumbai",
+      "salary": 65000,
+      "status": "rejected",
+      "type": "contract",
+      "appliedOn": "2025-10-15"
+    },
+    {
+      "id": "j4",
+      "userId": "u2",
+      "title": "Backend Developer",
+      "company": "Capgemini",
+      "location": "Pune",
+      "salary": 80000,
+      "status": "offer",
+      "type": "full-time",
+      "appliedOn": "2025-10-08"
+    },
+    {
+      "id": "j5",
+      "userId": "u2",
+      "title": "Node Developer",
+      "company": "Accenture",
+      "location": "Delhi",
+      "salary": 72000,
+      "status": "applied",
+      "type": "full-time",
+      "appliedOn": "2025-10-18"
+    },
+    {
+      "id": "j6",
+      "userId": "u1",
+      "title": "Full Stack Developer",
+      "company": "StartUpX",
+      "location": "Remote",
+      "salary": 90000,
+      "status": "interview",
+      "type": "remote",
+      "appliedOn": "2025-10-20"
+    },
+    {
+      "id": "j7",
+      "userId": "u1",
+      "title": "Angular Developer",
+      "company": "HCL",
+      "location": "Noida",
+      "salary": 68000,
+      "status": "offer",
+      "type": "full-time",
+      "appliedOn": "2025-10-21"
+    },
+    {
+      "id": "j8",
+      "userId": "u2",
+      "title": "Java Developer",
+      "company": "Cognizant",
+      "location": "Chennai",
+      "salary": 70000,
+      "status": "rejected",
+      "type": "full-time",
+      "appliedOn": "2025-10-22"
+    }
+  ]
+}

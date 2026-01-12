@@ -44,6 +44,19 @@ A modern **Job Tracking Web App** built with **MERN stack + Redux Toolkit (RTK)*
   - Form validation feedback
 
 ---
+🔥 ONE SCRIPT = ALL DOCS GENERATED AUTOMATICALLY
+└── /scripts/generate-all-docs.js
+
+🚀 Run: `node scripts/generate-all-docs.js`
+
+✅ Generates:
+├── postman-collection.json          (Postman ready)
+├── swagger-ui docs                 (Backend APIs)
+├── folder-structure.json           (Project map)
+├── folder-structure.md            (README tree)
+└── api-endpoints.md               (Complete API spec)
+
+---
 
 ## 🔄 Application Flow
 
@@ -81,10 +94,11 @@ A modern **Job Tracking Web App** built with **MERN stack + Redux Toolkit (RTK)*
 
 ```bash
 # Clone repo
-git clone https://github.com/yourusername/job-track-lite.git
+git clone https://github.com/sandeepV8401/job-track-lite.git
 cd job-track-lite
 
 # Install frontend & backend dependencies
+npm install
 cd backend && npm install
 cd ../frontend && npm install
 

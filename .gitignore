@@ -1,0 +1,87 @@
+# Dependencies (MOST IMPORTANT)
+**/node_modules/
+**/jspm_packages/
+
+# Production Builds
+frontend/dist/
+frontend/build/
+backend/dist/
+backend/build/
+
+# Environment Variables (SECURITY)
+.env*
+backend/.env*
+frontend/.env*
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# OS Files (Mac/Windows)
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Editor/IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+!.vscode/extensions.json
+
+# Vite (Frontend specific)
+frontend/dist/
+frontend/node_modules/
+frontend/.env*
+
+# Backend specific
+backend/node_modules/
+backend/dist/
+backend/docs/
+backend/.env*
+
+# Mock/Development Data
+frontend/public/data/
+
+
+# Database
+*.db
+mongod.lock
+*.sqlite
+
+# Testing
+**/coverage/
+**/coverage.lcov
+
+# Postman Collections
+postman/
+postman-collection.json
+
+# Runtime/Temp
+pids
+*.pid
+*.seed
+*.pid.lock
+tmp/
+temp/
+
+# Scripts logs
+scripts/*.log
+scripts/output-files
+# Yarn
+.yarn-integrity
+.yarn/cache
+.yarn/unplugged
+.yarn/state.gz

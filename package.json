@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "openapi-to-postmanv2": "^5.7.0",
+    "yamljs": "^0.3.0"
+  }
+}
