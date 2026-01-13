@@ -49,7 +49,6 @@ frontend/.env*
 # Backend specific
 backend/node_modules/
 backend/dist/
-backend/docs/
 backend/.env*
 
 # Mock/Development Data
