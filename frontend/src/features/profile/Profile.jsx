@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useAuth } from "../auth/store/authHook";
+import profileImg from "../../assets/profileImg.jpg";
 
 const Profile = () => {
   const { user, isLoading, error, getProfile, updateProfile } = useAuth();
@@ -55,7 +56,7 @@ const Profile = () => {
         <div className="flex flex-col items-center gap-3 sm:gap-2 w-full">
           <img
             className="w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover ring-2 ring-orange-200 shadow-md"
-            src="https:images.unsplash.com/photo-1494790108377-be9c29b29330?w=300"
+            src={profileImg}
             alt="profile"
           />
           <span className="text-gray-600 font-semibold text-sm sm:text-base text-center">
