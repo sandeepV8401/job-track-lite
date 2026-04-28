@@ -56,6 +56,20 @@ A modern **Job Tracking Web App** built with **MERN stack + Redux Toolkit (RTK)*
 ├── folder-structure.md            (README tree)
 └── api-endpoints.md               (Complete API spec)
 
+
+---
+
+## 🌍 Live Demo & API Docs
+
+- 🔗 **Frontend (Live App):**  
+  https://job-track-lite.vercel.app/auth
+
+- 📘 **Backend API Docs (Swagger):**  
+  https://job-track-lite.onrender.com/api-docs/
+
+- 🌐 **Backend Base URL:**  
+  https://job-track-lite.onrender.com/
+
 ---
 
 ## 🔄 Application Flow
@@ -92,15 +106,72 @@ A modern **Job Tracking Web App** built with **MERN stack + Redux Toolkit (RTK)*
 
 ## 🛠 Setup & Run
 
-```bash
-# Clone repo
-git clone https://github.com/sandeepV8401/job-track-lite.git
-cd job-track-lite
+### 📌 Prerequisites
 
-# Install frontend & backend dependencies
+* Node.js **v20+ (recommended: 20.19.0 or above)**
+* npm **v10+**
+
+---
+
+### 📥 Clone Repository
+
+```bash
+git clone https://github.com/sandeepV8401/job-track-lite.git job-track-lite
+cd job-track-lite
+```
+
+---
+
+### 📦 Install Dependencies
+
+```bash
+# Root (optional)
 npm install
-cd backend && npm install
-cd ../frontend && npm install
+
+# Backend
+cd backend
+npm install
+
+# Install nodemon (dev only)
+npm install --save-dev nodemon
+
+# Frontend
+cd ../frontend
+npm install
+```
+
+---
+
+### 🚀 Run Application
+
+#### ▶️ Start Backend
+
+```bash
+cd backend
+npm run dev
+```
+
+👉 Runs on: `http://localhost:5000`
+
+---
+
+#### ▶️ Start Frontend
+
+```bash
+cd frontend
+npm run dev
+```
+
+👉 Runs on: `http://localhost:5173`
+
+---
+
+### 🔗 Notes
+
+* Frontend uses Vite (not CRA)
+* Proxy is set to backend (`localhost:5000`)
+
+---
 
 # Run backend (port 5000)
 cd ../backend && npm run dev
