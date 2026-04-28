@@ -142,6 +142,18 @@ npm install
 
 ---
 
+## 🔐 Environment Variables
+
+Create a `.env` file in the backend folder and add:
+
+NODE_ENV=development
+PORT=5000
+MONGODB_URI=your_mongodb_connection_string
+JWT_SECRET=your_super_secret_key
+API_BASE_URL=http://localhost:5000/api
+
+---
+
 ### 🚀 Run Application
 
 #### ▶️ Start Backend
