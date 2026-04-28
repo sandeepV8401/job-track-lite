@@ -176,6 +176,6 @@ npm run dev
 # Run backend (port 5000)
 cd ../backend && npm run dev
 
-# Run frontend (port 3000)
+# Run frontend (port 5173)
 cd ../frontend && npm start
 ```
